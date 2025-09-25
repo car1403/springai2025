@@ -18,7 +18,7 @@ class Ai1ApplicationTests {
 
     @Test
     void contextLoads() {
-       Flux<String> fluxString = aiServiceByChatClient.generateStreamText("안녕");
+       Flux<String> fluxString = aiServiceByChatClient.generateStreamText("천안맛집알려줘");
        String result = fluxString.collectList().block().stream().collect(Collectors.joining());
        log.info(result);
     }

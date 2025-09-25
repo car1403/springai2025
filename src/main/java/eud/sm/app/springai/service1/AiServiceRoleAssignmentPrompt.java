@@ -32,8 +32,6 @@ public class AiServiceRoleAssignmentPrompt {
         .user("요청사항: %s".formatted(requirements))
         // 대화 옵션 설정
         .options(ChatOptions.builder()
-            .temperature(1.0)
-            .maxTokens(1000)
             .build())
         // LLM으로 요청하고 응답 얻기
         .stream()

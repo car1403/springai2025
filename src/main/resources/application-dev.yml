@@ -8,21 +8,24 @@ spring:
   config:
     import: optional:file:.env[.properties]  # .env import
   ai:
-    vertex:
-      ai:
-        credentials-uri: classpath:genai-key.json
-        gemini:
-          project-id: gen-lang-client-0237923313
-          location: us-central1
-      gemini:
-        chat:
-          options:
-            model: gemini-2.0-flash
     vectorstore:
       pgvector:
         initialize-schema: true
     openai:
+      #api-key: ${GEMINI_API_KEY}
+      #chat:
+      #  options:
+      #    model: gemini-2.5-flash
+      #    temperature: 0.0
+      #    max-tokens: 1000
+      #  completions-path: /v1/chat/completions
+      #  base-url: https://generativelanguage.googleapis.com/v1beta/openai/
       api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o
+          temperature: 0.1
+          max-tokens: 1000
   mvc:
     view:
       prefix: /views/

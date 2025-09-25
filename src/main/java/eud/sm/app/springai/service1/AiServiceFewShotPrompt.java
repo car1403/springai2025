@@ -51,8 +51,6 @@ public class AiServiceFewShotPrompt {
     // LLM으로 요청하고 응답을 받음
     String pizzaOrderJson = chatClient.prompt(prompt)
         .options(ChatOptions.builder()
-            .temperature(0.0)
-            .maxTokens(300)
             .build())
         .call()
         .content();

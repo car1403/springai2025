@@ -33,9 +33,6 @@ public class AiService {
     
     // 대화 옵션 설정
     ChatOptions chatOptions = ChatOptions.builder()
-        .model("gpt-4o")
-        .temperature(0.3)
-        .maxTokens(1000)
         .build();
 
     // 프롬프트 생성
@@ -65,9 +62,6 @@ public class AiService {
 
     // 대화 옵션 설정
     ChatOptions chatOptions = ChatOptions.builder()
-        .model("gpt-4o")
-        .temperature(0.3)
-        .maxTokens(1000)
         .build();
 
     // 프롬프트 생성

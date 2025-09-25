@@ -93,7 +93,7 @@
   </div>
 
 
-  <div id="result" class="container p-3 my-3 border" style="overflow: auto;width:auto;height: 300px;">
+  <div id="result" class="container p-3 my-3 border" style="overflow: auto;width:auto;height: 500px;">
 
   </div>
 

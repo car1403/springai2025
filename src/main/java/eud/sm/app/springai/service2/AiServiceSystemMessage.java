@@ -25,7 +25,7 @@ public class AiServiceSystemMessage {
             유효한 JSON을 반환하세요.
          """)
         .user("%s".formatted(review))
-        .options(ChatOptions.builder().temperature(0.0).build())
+        .options(ChatOptions.builder().build())
         .call()
         .entity(ReviewClassification.class);
     return reviewClassification;

@@ -24,7 +24,7 @@
     <li class="nav-item">
       <a class="nav-link" href="<c:url value="/springai1/ai7"/> ">ai7</a>
     </li>
-    <li class="nav-item">1
+    <li class="nav-item">
       <a class="nav-link" href="<c:url value="/springai1/ai8"/> ">ai8</a>
     </li>
     <li class="nav-item">
