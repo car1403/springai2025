@@ -8,6 +8,16 @@ spring:
   config:
     import: optional:file:.env[.properties]  # .env import
   ai:
+    vertex:
+      ai:
+        credentials-uri: classpath:genai-key.json
+        gemini:
+          project-id: gen-lang-client-0237923313
+          location: us-central1
+      gemini:
+        chat:
+          options:
+            model: gemini-2.0-flash
     vectorstore:
       pgvector:
         initialize-schema: true
