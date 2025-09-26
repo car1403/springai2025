@@ -25,9 +25,6 @@
     `;
       $('#result').prepend(qForm);
 
-      // 응답이 오기까지 스피너 보여주기
-      springai.setSpinner("spinner", true);
-
       // AJAX 요청하고 응답받기
       const response = await fetch('/ai5/recommend-movie-tools', {
         method: "post",

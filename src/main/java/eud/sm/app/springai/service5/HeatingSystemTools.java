@@ -53,7 +53,7 @@ public class HeatingSystemTools {
   @Tool(description = "현재 온도를 제공합니다.")
   public int getTemperature() {
     Random random = new Random();
-    int temperature = random.nextInt(13) + 18;
+    int temperature = random.nextInt(13) + 17;
     log.info("현재 온도: {}", temperature);
     return temperature;
   }   

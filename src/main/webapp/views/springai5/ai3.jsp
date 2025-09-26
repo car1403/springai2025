@@ -102,7 +102,7 @@
   <h2>Spring AI 3</h2>
   <div class="row">
     <div class="col-sm-8">
-      <span class="input-group-text">사진</span>
+      <span class="input-group-text">자동차 번호판 사진</span>
       <input id="attach" class="form-control" type="file"/>
     </div>
     <div class="col-sm-2">

@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/ai3")
@@ -37,6 +38,19 @@ public class Ai3Controller {
   public String stt(@RequestParam("speech") MultipartFile speech) throws IOException {
     String text = aisttService.stt(speech);
     return text;
+  }
+  @RequestMapping(value = "/target")
+  public String target(@RequestParam("questionText")  String questionText) throws IOException {
+    Map<String, String> views = new ConcurrentHashMap<>();
+    log.info("|"+questionText+"|");
+
+    views.put("로그인", "/login");
+    views.put("상품", "/items");
+
+    String result = views.get(questionText.trim());
+    log.info(result);
+
+    return result;
   }
 
   @RequestMapping(value = "/tts")
@@ -64,5 +78,17 @@ public class Ai3Controller {
 
     Flux<String> flux = aiImageService.imageAnalysis(question, attach.getContentType(), attach.getBytes());
     return flux;
+  }
+
+  @RequestMapping( value = "/image-generate" )
+  public String imageGenerate(@RequestParam("question") String question) {
+    log.info("start imageGenerate-------------");
+    try {
+      String b64Json = aiImageService.generateImage(question);
+      return b64Json;
+    } catch(Exception e) {
+      e.printStackTrace();
+      return "Error: " + e.getMessage();
+    }
   }
 }

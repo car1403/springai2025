@@ -4,6 +4,7 @@ package eud.sm.controller;
 import eud.sm.app.springai.service4.AiChatService;
 import eud.sm.app.springai.service4.ETLService;
 import eud.sm.app.springai.service5.BoomBarrierService;
+import eud.sm.app.springai.service5.GoService;
 import eud.sm.app.springai.service5.HeatingSystemService;
 import eud.sm.app.springai.service5.RecommendMovieService;
 import jakarta.servlet.http.HttpSession;
@@ -28,6 +29,8 @@ public class Ai5Controller {
   final private HeatingSystemService heatingSystemService;
   final private RecommendMovieService recommendMovieService;
   final private BoomBarrierService boomBarrierService;
+  final private GoService goService;
+
 
 
   // ##### 요청 매핑 메소드 #####
@@ -41,6 +44,12 @@ public class Ai5Controller {
     String answer = recommendMovieService.chat(question);
     return answer;
   }
+  @RequestMapping( value = "/go-tools")
+  public String goTools(@RequestParam("question") String question) {
+    String answer = goService.chat(question);
+    return answer;
+  }
+
   @RequestMapping( value = "/boom-barrier-tools")
   public String boomBarrierTools(
           @RequestParam("attach") MultipartFile attach) throws IOException {

@@ -25,26 +25,31 @@
     `;
       $('#result').prepend(qForm);
 
-      const response = await fetch('/ai2/map-output-converter', {
+      // AJAX 요청하고 응답받기
+      const response = await fetch('/ai5/go-tools', {
         method: "post",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          'Accept': 'application/json'
+          'Accept': 'text/plain'
         },
-        body: new URLSearchParams({ hotel: question })
+        body: new URLSearchParams({ question })
       });
 
       let uuid = this.makeUi("result");
 
-      const jsonString = await response.text();
-      const jsonObject = JSON.parse(jsonString);
-      const prettyJson = JSON.stringify(jsonObject, null, 2);
-      $('#'+uuid).html(prettyJson)
-
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+      let content = "";
+      while (true) {
+        const {value, done} = await reader.read();
+        if (done) break;
+        let chunk = decoder.decode(value);
+        content += chunk;
+        console.log(content);
+        $('#'+uuid).html(content)
+      }
 
       $('#spinner').css('visibility','hidden');
-
-
     },
     makeUi:function(target){
       let uuid = "id-" + crypto.randomUUID();
@@ -75,7 +80,7 @@
   <h2>Spring AI 4</h2>
   <div class="row">
     <div class="col-sm-8">
-      <textarea id="question" class="form-control">신라호텔</textarea>
+      <textarea id="question" class="form-control">로그인 화면으로 이동해줘</textarea>
     </div>
     <div class="col-sm-2">
       <button type="button" class="btn btn-primary" id="send">Send</button>

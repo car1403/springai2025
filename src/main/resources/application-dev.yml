@@ -54,7 +54,6 @@ logging:
 # Application Config
 app:
   dir:
-    saveaudiodir: C:/test1/audio/
     imgsdir: file:///C:/smu/imgs/     # 화면 출력 용
     uploadimgsdir: C:/smu/imgs/    # 파일 Write 용
 
