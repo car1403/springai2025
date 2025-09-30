@@ -20,10 +20,11 @@ class Test1ApplicationTests {
     @Test
     void contextLoads() {
         Flux<String> fluxString = aiService.generateStreamText("천안맛집알려줘");
-        String result = fluxString.collectList().block().stream().collect(Collectors.joining());
-        log.info(result);
+        fluxString.collectList().block().stream().forEach(s -> {log.info(s);});
 
-        //String txt = aiService.generateText("찬안에 날씨 알려줘");
+       // log.info(result);
+
+        //String txt = aiService.generateText("천안맛집알려줘");
         //log.info(txt);
     }
 }

@@ -68,7 +68,7 @@ public class Ai1Controller {
   @RequestMapping(value = "/prompt-template")
   public Flux<String> promptTemplate(      @RequestParam("statement") String statement,
                                            @RequestParam("language") String language) {
-    Flux<String> response = aiServicept.promptTemplate1(statement, language);
+    Flux<String> response = aiServicept.promptTemplate2(statement, language);
     return response;
   }
   @RequestMapping(value = "/role-assignment")
